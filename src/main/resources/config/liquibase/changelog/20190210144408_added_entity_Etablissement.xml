@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Etablissement.
+    -->
+    <changeSet id="20190210144408-1" author="jhipster">
+        <createTable tableName="etablissement">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="libele" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="nbr_medecin" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nbr_personnel_sf_is_ide_tms" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nbr_personnel_ib_iba_tal" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nbr_personnel_as_atms" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nbr_personnel_administratif" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nbr_personnel_nom_qualifie" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ratio_personnel_qualifiepar_hab" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nbr_litpar_habitant" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="penta_1" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="penta_3" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dif_penta_1_et_3" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="medecin_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_etablissement_medecin_id" />
+            </column>
+            <column name="localisation_etablissement_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

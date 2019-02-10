@@ -1,0 +1,38 @@
+{
+    "name": "SyntheseEvaluation",
+    "fields": [
+        {
+            "fieldName": "composante",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pointDisponnible",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbrIndicateurComposite",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "pourcentageObtenue",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190210144416",
+    "entityTableName": "synthese_evaluation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

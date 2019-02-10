@@ -1,0 +1,26 @@
+{
+    "medStatApp": {
+        "syntheseEvaluation": {
+            "home": {
+                "title": "SyntheseEvaluations",
+                "createLabel": "Créer un nouveau Synthese Evaluation",
+                "createOrEditLabel": "Créer ou éditer un Synthese Evaluation",
+                "search": "Recherche pour Synthese Evaluation"
+            },
+            "created": "Un nouveau Synthese Evaluation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Synthese Evaluation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Synthese Evaluation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Synthese Evaluation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Synthese Evaluation"
+            },
+            "composante": "Composante",
+            "pointDisponnible": "Point Disponnible",
+            "nbrIndicateurComposite": "Nbr Indicateur Composite",
+            "pourcentageObtenue": "Pourcentage Obtenue",
+            "description": "Description"
+        }
+    }
+}

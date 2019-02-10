@@ -1,0 +1,37 @@
+{
+    "medStatApp": {
+        "etablissement": {
+            "home": {
+                "title": "Etablissements",
+                "createLabel": "Create a new Etablissement",
+                "createOrEditLabel": "Create or edit a Etablissement",
+                "search": "Search for Etablissement"
+            },
+            "created": "A new Etablissement is created with identifier {{ param }}",
+            "updated": "A Etablissement is updated with identifier {{ param }}",
+            "deleted": "A Etablissement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Etablissement {{ id }}?"
+            },
+            "detail": {
+                "title": "Etablissement"
+            },
+            "libele": "Libele",
+            "description": "Description",
+            "type": "Type",
+            "nbrMedecin": "Nbr Medecin",
+            "nbrPersonnelSfIsIdeTms": "Nbr Personnel Sf Is Ide Tms",
+            "nbrPersonnelIbIbaTal": "Nbr Personnel Ib Iba Tal",
+            "nbrPersonnelAsAtms": "Nbr Personnel As Atms",
+            "nbrPersonnelAdministratif": "Nbr Personnel Administratif",
+            "nbrPersonnelNomQualifie": "Nbr Personnel Nom Qualifie",
+            "ratioPersonnelQualifieparHab": "Ratio Personnel Qualifiepar Hab",
+            "nbrLitparHabitant": "Nbr Litpar Habitant",
+            "penta1": "Penta 1",
+            "penta3": "Penta 3",
+            "difPenta1Et3": "Dif Penta 1 Et 3",
+            "medecin": "Medecin",
+            "localisationEtablissement": "Localisation Etablissement"
+        }
+    }
+}

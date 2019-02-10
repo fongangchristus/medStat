@@ -1,0 +1,53 @@
+{
+    "name": "Evaluation",
+    "fields": [
+        {
+            "fieldName": "lieu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateEvaluation",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "syntheseEvaluation",
+            "otherEntityName": "syntheseEvaluation",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "evaluation"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "medecinEvaluation",
+            "otherEntityName": "medecin",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "evaluation"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "questionnaireEvaluation",
+            "otherEntityName": "questionnaire",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "evaluation"
+        }
+    ],
+    "changelogDate": "20190210144411",
+    "entityTableName": "evaluation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

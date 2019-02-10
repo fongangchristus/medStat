@@ -1,0 +1,94 @@
+{
+    "name": "Etablissement",
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeEtab",
+            "fieldValues": "PUBLIQUE,PRIVEE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nbrMedecin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbrPersonnelSfIsIdeTms",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbrPersonnelIbIbaTal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbrPersonnelAsAtms",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbrPersonnelAdministratif",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbrPersonnelNomQualifie",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ratioPersonnelQualifieparHab",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbrLitparHabitant",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "penta1",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "penta3",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "difPenta1Et3",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "medecin",
+            "otherEntityName": "medecin",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "etablissement"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "localisationEtablissement",
+            "otherEntityName": "localisation",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "etablissement"
+        }
+    ],
+    "changelogDate": "20190210144408",
+    "entityTableName": "etablissement",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etablissement">
+            <h2><span jhiTranslate="medStatApp.etablissement.detail.title">Etablissement</span> {{etablissement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medStatApp.etablissement.libele">Libele</span></dt>
+                <dd>
+                    <span>{{etablissement.libele}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.description">Description</span></dt>
+                <dd>
+                    <span>{{etablissement.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'medStatApp.TypeEtab.' + etablissement.type}}">{{etablissement.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.nbrMedecin">Nbr Medecin</span></dt>
+                <dd>
+                    <span>{{etablissement.nbrMedecin}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.nbrPersonnelSfIsIdeTms">Nbr Personnel Sf Is Ide Tms</span></dt>
+                <dd>
+                    <span>{{etablissement.nbrPersonnelSfIsIdeTms}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.nbrPersonnelIbIbaTal">Nbr Personnel Ib Iba Tal</span></dt>
+                <dd>
+                    <span>{{etablissement.nbrPersonnelIbIbaTal}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.nbrPersonnelAsAtms">Nbr Personnel As Atms</span></dt>
+                <dd>
+                    <span>{{etablissement.nbrPersonnelAsAtms}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.nbrPersonnelAdministratif">Nbr Personnel Administratif</span></dt>
+                <dd>
+                    <span>{{etablissement.nbrPersonnelAdministratif}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.nbrPersonnelNomQualifie">Nbr Personnel Nom Qualifie</span></dt>
+                <dd>
+                    <span>{{etablissement.nbrPersonnelNomQualifie}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.ratioPersonnelQualifieparHab">Ratio Personnel Qualifiepar Hab</span></dt>
+                <dd>
+                    <span>{{etablissement.ratioPersonnelQualifieparHab}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.nbrLitparHabitant">Nbr Litpar Habitant</span></dt>
+                <dd>
+                    <span>{{etablissement.nbrLitparHabitant}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.penta1">Penta 1</span></dt>
+                <dd>
+                    <span>{{etablissement.penta1}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.penta3">Penta 3</span></dt>
+                <dd>
+                    <span>{{etablissement.penta3}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.difPenta1Et3">Dif Penta 1 Et 3</span></dt>
+                <dd>
+                    <span>{{etablissement.difPenta1Et3}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.medecin">Medecin</span></dt>
+                <dd>
+                    <div *ngIf="etablissement.medecinId">
+                        <a [routerLink]="['/medecin', etablissement.medecinId, 'view']">{{etablissement.medecinId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.etablissement.localisationEtablissement">Localisation Etablissement</span></dt>
+                <dd>
+                    <div *ngIf="etablissement.localisationEtablissementId">
+                        <a [routerLink]="['/localisation', etablissement.localisationEtablissementId, 'view']">{{etablissement.localisationEtablissementId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etablissement', etablissement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,15 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "etablissement": "Etablissement",
+                "localisation": "Localisation",
+                "medecin": "Medecin",
+                "evaluation": "Evaluation",
+                "questionnaire": "Questionnaire",
+                "question": "Question",
+                "categorie": "Categorie",
+                "reponse": "Reponse",
+                "syntheseEvaluation": "Synthese Evaluation",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-evaluation-heading" jhiTranslate="medStatApp.evaluation.home.createOrEditLabel">Create or edit a Evaluation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!evaluation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="evaluation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.evaluation.lieu" for="field_lieu">Lieu</label>
+                    <input type="text" class="form-control" name="lieu" id="field_lieu"
+                        [(ngModel)]="evaluation.lieu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.evaluation.note" for="field_note">Note</label>
+                    <input type="number" class="form-control" name="note" id="field_note"
+                        [(ngModel)]="evaluation.note" required/>
+                    <div [hidden]="!(editForm.controls.note?.dirty && editForm.controls.note?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.note?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.note?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.evaluation.dateEvaluation" for="field_dateEvaluation">Date Evaluation</label>
+                    <div class="d-flex">
+                        <input id="field_dateEvaluation" type="datetime-local" class="form-control" name="dateEvaluation" [(ngModel)]="dateEvaluation" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.evaluation.syntheseEvaluation" for="field_syntheseEvaluation">Synthese Evaluation</label>
+                    <select class="form-control" id="field_syntheseEvaluation" name="syntheseEvaluation" [(ngModel)]="evaluation.syntheseEvaluationId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="syntheseEvaluationOption.id" *ngFor="let syntheseEvaluationOption of syntheseevaluations; trackBy: trackSyntheseEvaluationById">{{syntheseEvaluationOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.evaluation.medecinEvaluation" for="field_medecinEvaluation">Medecin Evaluation</label>
+                    <select class="form-control" id="field_medecinEvaluation" name="medecinEvaluation" [(ngModel)]="evaluation.medecinEvaluationId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medecinOption.id" *ngFor="let medecinOption of medecins; trackBy: trackMedecinById">{{medecinOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.evaluation.questionnaireEvaluation" for="field_questionnaireEvaluation">Questionnaire Evaluation</label>
+                    <select class="form-control" id="field_questionnaireEvaluation" name="questionnaireEvaluation" [(ngModel)]="evaluation.questionnaireEvaluationId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="questionnaireOption.id" *ngFor="let questionnaireOption of questionnaires; trackBy: trackQuestionnaireById">{{questionnaireOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

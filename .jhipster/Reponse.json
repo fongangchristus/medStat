@@ -1,0 +1,30 @@
+{
+    "name": "Reponse",
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "questionReponse",
+            "otherEntityName": "question",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "reponse"
+        }
+    ],
+    "changelogDate": "20190210144415",
+    "entityTableName": "reponse",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

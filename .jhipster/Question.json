@@ -1,0 +1,42 @@
+{
+    "name": "Question",
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "questionnaireQuestion",
+            "otherEntityName": "questionnaire",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "question"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "categorieQuestion",
+            "otherEntityName": "categorie",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "question"
+        }
+    ],
+    "changelogDate": "20190210144413",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "question",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

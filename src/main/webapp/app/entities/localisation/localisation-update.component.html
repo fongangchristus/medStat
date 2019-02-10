@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-localisation-heading" jhiTranslate="medStatApp.localisation.home.createOrEditLabel">Create or edit a Localisation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!localisation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="localisation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.localisation.region" for="field_region">Region</label>
+                    <input type="text" class="form-control" name="region" id="field_region"
+                        [(ngModel)]="localisation.region" required/>
+                    <div [hidden]="!(editForm.controls.region?.dirty && editForm.controls.region?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.region?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.localisation.departement" for="field_departement">Departement</label>
+                    <input type="text" class="form-control" name="departement" id="field_departement"
+                        [(ngModel)]="localisation.departement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.localisation.ville" for="field_ville">Ville</label>
+                    <input type="text" class="form-control" name="ville" id="field_ville"
+                        [(ngModel)]="localisation.ville" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.localisation.district" for="field_district">District</label>
+                    <input type="text" class="form-control" name="district" id="field_district"
+                        [(ngModel)]="localisation.district" required/>
+                    <div [hidden]="!(editForm.controls.district?.dirty && editForm.controls.district?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.district?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

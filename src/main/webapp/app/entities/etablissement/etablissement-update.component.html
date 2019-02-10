@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-etablissement-heading" jhiTranslate="medStatApp.etablissement.home.createOrEditLabel">Create or edit a Etablissement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!etablissement.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="etablissement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.libele" for="field_libele">Libele</label>
+                    <input type="text" class="form-control" name="libele" id="field_libele"
+                        [(ngModel)]="etablissement.libele" required/>
+                    <div [hidden]="!(editForm.controls.libele?.dirty && editForm.controls.libele?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libele?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="etablissement.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="etablissement.type" id="field_type"  required>
+                        <option value="PUBLIQUE">{{'medStatApp.TypeEtab.PUBLIQUE' | translate}}</option>
+                        <option value="PRIVEE">{{'medStatApp.TypeEtab.PRIVEE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.nbrMedecin" for="field_nbrMedecin">Nbr Medecin</label>
+                    <input type="number" class="form-control" name="nbrMedecin" id="field_nbrMedecin"
+                        [(ngModel)]="etablissement.nbrMedecin" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.nbrPersonnelSfIsIdeTms" for="field_nbrPersonnelSfIsIdeTms">Nbr Personnel Sf Is Ide Tms</label>
+                    <input type="number" class="form-control" name="nbrPersonnelSfIsIdeTms" id="field_nbrPersonnelSfIsIdeTms"
+                        [(ngModel)]="etablissement.nbrPersonnelSfIsIdeTms" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.nbrPersonnelIbIbaTal" for="field_nbrPersonnelIbIbaTal">Nbr Personnel Ib Iba Tal</label>
+                    <input type="number" class="form-control" name="nbrPersonnelIbIbaTal" id="field_nbrPersonnelIbIbaTal"
+                        [(ngModel)]="etablissement.nbrPersonnelIbIbaTal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.nbrPersonnelAsAtms" for="field_nbrPersonnelAsAtms">Nbr Personnel As Atms</label>
+                    <input type="number" class="form-control" name="nbrPersonnelAsAtms" id="field_nbrPersonnelAsAtms"
+                        [(ngModel)]="etablissement.nbrPersonnelAsAtms" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.nbrPersonnelAdministratif" for="field_nbrPersonnelAdministratif">Nbr Personnel Administratif</label>
+                    <input type="number" class="form-control" name="nbrPersonnelAdministratif" id="field_nbrPersonnelAdministratif"
+                        [(ngModel)]="etablissement.nbrPersonnelAdministratif" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.nbrPersonnelNomQualifie" for="field_nbrPersonnelNomQualifie">Nbr Personnel Nom Qualifie</label>
+                    <input type="number" class="form-control" name="nbrPersonnelNomQualifie" id="field_nbrPersonnelNomQualifie"
+                        [(ngModel)]="etablissement.nbrPersonnelNomQualifie" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.ratioPersonnelQualifieparHab" for="field_ratioPersonnelQualifieparHab">Ratio Personnel Qualifiepar Hab</label>
+                    <input type="number" class="form-control" name="ratioPersonnelQualifieparHab" id="field_ratioPersonnelQualifieparHab"
+                        [(ngModel)]="etablissement.ratioPersonnelQualifieparHab" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.nbrLitparHabitant" for="field_nbrLitparHabitant">Nbr Litpar Habitant</label>
+                    <input type="number" class="form-control" name="nbrLitparHabitant" id="field_nbrLitparHabitant"
+                        [(ngModel)]="etablissement.nbrLitparHabitant" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.penta1" for="field_penta1">Penta 1</label>
+                    <input type="number" class="form-control" name="penta1" id="field_penta1"
+                        [(ngModel)]="etablissement.penta1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.penta3" for="field_penta3">Penta 3</label>
+                    <input type="number" class="form-control" name="penta3" id="field_penta3"
+                        [(ngModel)]="etablissement.penta3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.difPenta1Et3" for="field_difPenta1Et3">Dif Penta 1 Et 3</label>
+                    <input type="number" class="form-control" name="difPenta1Et3" id="field_difPenta1Et3"
+                        [(ngModel)]="etablissement.difPenta1Et3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.medecin" for="field_medecin">Medecin</label>
+                    <select class="form-control" id="field_medecin" name="medecin" [(ngModel)]="etablissement.medecinId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medecinOption.id" *ngFor="let medecinOption of medecins; trackBy: trackMedecinById">{{medecinOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medStatApp.etablissement.localisationEtablissement" for="field_localisationEtablissement">Localisation Etablissement</label>
+                    <select class="form-control" id="field_localisationEtablissement" name="localisationEtablissement" [(ngModel)]="etablissement.localisationEtablissementId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="localisationOption.id" *ngFor="let localisationOption of localisations; trackBy: trackLocalisationById">{{localisationOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

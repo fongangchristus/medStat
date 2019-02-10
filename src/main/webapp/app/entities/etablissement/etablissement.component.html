@@ -1,0 +1,115 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="medStatApp.etablissement.home.title">Etablissements</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-etablissement" [routerLink]="['/etablissement/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="medStatApp.etablissement.home.createLabel">
+            Create new Etablissement
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'medStatApp.etablissement.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="etablissements">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libele"><span jhiTranslate="medStatApp.etablissement.libele">Libele</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="medStatApp.etablissement.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="type"><span jhiTranslate="medStatApp.etablissement.type">Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nbrMedecin"><span jhiTranslate="medStatApp.etablissement.nbrMedecin">Nbr Medecin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nbrPersonnelSfIsIdeTms"><span jhiTranslate="medStatApp.etablissement.nbrPersonnelSfIsIdeTms">Nbr Personnel Sf Is Ide Tms</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nbrPersonnelIbIbaTal"><span jhiTranslate="medStatApp.etablissement.nbrPersonnelIbIbaTal">Nbr Personnel Ib Iba Tal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nbrPersonnelAsAtms"><span jhiTranslate="medStatApp.etablissement.nbrPersonnelAsAtms">Nbr Personnel As Atms</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nbrPersonnelAdministratif"><span jhiTranslate="medStatApp.etablissement.nbrPersonnelAdministratif">Nbr Personnel Administratif</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nbrPersonnelNomQualifie"><span jhiTranslate="medStatApp.etablissement.nbrPersonnelNomQualifie">Nbr Personnel Nom Qualifie</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ratioPersonnelQualifieparHab"><span jhiTranslate="medStatApp.etablissement.ratioPersonnelQualifieparHab">Ratio Personnel Qualifiepar Hab</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nbrLitparHabitant"><span jhiTranslate="medStatApp.etablissement.nbrLitparHabitant">Nbr Litpar Habitant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="penta1"><span jhiTranslate="medStatApp.etablissement.penta1">Penta 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="penta3"><span jhiTranslate="medStatApp.etablissement.penta3">Penta 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="difPenta1Et3"><span jhiTranslate="medStatApp.etablissement.difPenta1Et3">Dif Penta 1 Et 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="medecinId"><span jhiTranslate="medStatApp.etablissement.medecin">Medecin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="localisationEtablissementId"><span jhiTranslate="medStatApp.etablissement.localisationEtablissement">Localisation Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let etablissement of etablissements ;trackBy: trackId">
+                <td><a [routerLink]="['/etablissement', etablissement.id, 'view' ]">{{etablissement.id}}</a></td>
+                <td>{{etablissement.libele}}</td>
+                <td>{{etablissement.description}}</td>
+                <td jhiTranslate="{{'medStatApp.TypeEtab.' + etablissement.type}}">{{etablissement.type}}</td>
+                <td>{{etablissement.nbrMedecin}}</td>
+                <td>{{etablissement.nbrPersonnelSfIsIdeTms}}</td>
+                <td>{{etablissement.nbrPersonnelIbIbaTal}}</td>
+                <td>{{etablissement.nbrPersonnelAsAtms}}</td>
+                <td>{{etablissement.nbrPersonnelAdministratif}}</td>
+                <td>{{etablissement.nbrPersonnelNomQualifie}}</td>
+                <td>{{etablissement.ratioPersonnelQualifieparHab}}</td>
+                <td>{{etablissement.nbrLitparHabitant}}</td>
+                <td>{{etablissement.penta1}}</td>
+                <td>{{etablissement.penta3}}</td>
+                <td>{{etablissement.difPenta1Et3}}</td>
+                <td>
+                    <div *ngIf="etablissement.medecinId">
+                        <a [routerLink]="['../medecin', etablissement.medecinId , 'view' ]" >{{etablissement.medecinId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="etablissement.localisationEtablissementId">
+                        <a [routerLink]="['../localisation', etablissement.localisationEtablissementId , 'view' ]" >{{etablissement.localisationEtablissementId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/etablissement', etablissement.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/etablissement', etablissement.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'etablissement', { outlets: { popup: etablissement.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="etablissements && etablissements.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

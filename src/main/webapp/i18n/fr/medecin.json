@@ -1,0 +1,26 @@
+{
+    "medStatApp": {
+        "medecin": {
+            "home": {
+                "title": "Medecins",
+                "createLabel": "Créer un nouveau Medecin",
+                "createOrEditLabel": "Créer ou éditer un Medecin",
+                "search": "Recherche pour Medecin"
+            },
+            "created": "Un nouveau Medecin a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Medecin avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Medecin avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Medecin {{ id }} ?"
+            },
+            "detail": {
+                "title": "Medecin"
+            },
+            "nom": "Nom",
+            "telephone": "Telephone",
+            "email": "Email",
+            "qualification": "Qualification",
+            "adresse": "Adresse"
+        }
+    }
+}

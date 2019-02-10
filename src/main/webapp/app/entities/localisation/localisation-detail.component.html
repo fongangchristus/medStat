@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="localisation">
+            <h2><span jhiTranslate="medStatApp.localisation.detail.title">Localisation</span> {{localisation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medStatApp.localisation.region">Region</span></dt>
+                <dd>
+                    <span>{{localisation.region}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.localisation.departement">Departement</span></dt>
+                <dd>
+                    <span>{{localisation.departement}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.localisation.ville">Ville</span></dt>
+                <dd>
+                    <span>{{localisation.ville}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.localisation.district">District</span></dt>
+                <dd>
+                    <span>{{localisation.district}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/localisation', localisation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "medStatApp": {
+        "reponse": {
+            "home": {
+                "title": "Reponses",
+                "createLabel": "Créer un nouveau Reponse",
+                "createOrEditLabel": "Créer ou éditer un Reponse",
+                "search": "Recherche pour Reponse"
+            },
+            "created": "Un nouveau Reponse a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Reponse avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Reponse avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Reponse {{ id }} ?"
+            },
+            "detail": {
+                "title": "Reponse"
+            },
+            "libele": "Libele",
+            "questionReponse": "Question Reponse"
+        }
+    }
+}

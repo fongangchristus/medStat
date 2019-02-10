@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reponse">
+            <h2><span jhiTranslate="medStatApp.reponse.detail.title">Reponse</span> {{reponse.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medStatApp.reponse.libele">Libele</span></dt>
+                <dd>
+                    <span>{{reponse.libele}}</span>
+                </dd>
+                <dt><span jhiTranslate="medStatApp.reponse.questionReponse">Question Reponse</span></dt>
+                <dd>
+                    <div *ngIf="reponse.questionReponseId">
+                        <a [routerLink]="['/question', reponse.questionReponseId, 'view']">{{reponse.questionReponseId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reponse', reponse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
