@@ -1,0 +1,99 @@
+
+entity  Etablissement{
+	libele String required,
+    description String,
+    type TypeEtab required,
+    nbrMedecin Double,
+    nbrPersonnelSfIsIdeTms Double,
+    nbrPersonnelIbIbaTal Double,
+    nbrPersonnelAsAtms Double,
+    nbrPersonnelAdministratif Double,
+    nbrPersonnelNomQualifie Double,
+    ratioPersonnelQualifieparHab Double,
+    nbrLitparHabitant Double,
+    penta1 Double,
+    penta3 Double,
+    difPenta1Et3 Double
+}
+
+entity Localisation{
+	region String required,
+    departement String,
+    ville String,
+    district String required
+}
+
+entity Medecin {
+	nom String required,
+    telephone String,
+    email String,
+    qualification String,
+    adresse String
+}
+entity Evaluation{
+	lieu String ,
+    note Double required,
+    dateEvaluation Instant
+}
+
+entity Questionnaire {
+	type String,
+	description String,
+    libele String required
+}
+
+/**
+ * The Employee entity.
+ */
+entity Question {
+	libele String required,
+	type String
+}
+
+entity Categorie {
+	libele String required,
+	description String
+}
+
+entity Reponse {
+	libele String required,
+}
+entity SyntheseEvaluation{
+	composante String required,
+    pointDisponnible Double,
+    nbrIndicateurComposite Double,
+    pourcentageObtenue Double,
+    description String
+}
+enum TypeEtab {
+    PUBLIQUE, PRIVEE
+}
+
+relationship OneToOne {
+	Etablissement{medecin} to Medecin,
+    Evaluation {syntheseEvaluation} to SyntheseEvaluation
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToOne {
+	Etablissement{localisationEtablissement} to Localisation,
+    Reponse {questionReponse} to Question,
+    Question {questionnaireQuestion} to Questionnaire,
+    Question {categorieQuestion} to Categorie,
+    Evaluation {medecinEvaluation} to Medecin,
+    Evaluation {questionnaireEvaluation} to Questionnaire
+}
+
+
+
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
