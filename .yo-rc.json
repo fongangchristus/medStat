@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "medStat",
+    "packageName": "com.lightsoftit.medstat",
+    "packageFolder": "com/lightsoftit/medstat",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.8.1",
+    "jwtSecretKey": "YzEyZGFiMzkzMDY0YTdkNmRhZjVkODQzODEzMGE2MDc2NGFjOWFlZTA4MmQzYzNlYjgzM2IzYTRkZGU5NmQyYzUyNmYzN2Y3MWI1YzZhNmFkYzY5YmM5MDUxOTQzODk5Y2I5ODhkNjU2MTkxY2RhM2ExNjQ3NjQyMTRlM2ZiMDU=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "fongangchristus",
+  "repository-name": "medStat"
+}
